@@ -10,7 +10,7 @@ Use this script to decrypt credentials that were secured using the
 "react-server-key" KMS key.
 """
 
-CREDENTIALS = "AQECAHhbAtEwdYIxxPI8vGiKYis3wg50uTv7BgqE9ToloMO22QAAAKwwgakGCSqGSIb3DQEHBqCBmzCBmAIBADCBkgYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAyoRYB+NK3K3BSeY/ACARCAZV0HyDnvcGe/FdzqUB1TiJAYQvaRwhf9rq9xpr503VbU+Wmx6043gnZ52u3e1xKB8bVX3hIFzlQGsF1WYT6RQqaClKlNl76MBl9dQ5nC+mpmgDx1Sp8Tpcxh48iY98V/IOdXW4ZA"
+CREDENTIALS = "AQECAHhbAtEwdYIxxPI8vGiKYis3wg50uTv7BgqE9ToloMO22QAAASQwggEgBgkqhkiG9w0BBwagggERMIIBDQIBADCCAQYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMIT5NelDwVeMLZH5HAgEQgIHYT6g5qKn5/BTniJpjGBaf07Ef/ljtvSRsUfxNcU+rqiINYiZa9ZuWvqn2r7AAaX1kl27y91dv3jDCMtfWpfIGoNLCsxoy1BQPGm65pSp6+nbnWorw9gp/XfHxvWswGRp0maWs7iBhDI0MIb0fs788bvJCyToWjtFLvt7J025ec/LBvkMgYaAPRVKvw1yhhNTI9wJmdGBqmLl+Ygui/E5lcEUZCpQoO9RX8nS2l9I+axH9hPYTObhJJ9pR3ykExAEkgEB54g7SyX8r36MJMaTOn/owlSecRE+l"
 
 def decrypt(args):
     kms = boto3.client('kms', 'us-west-2')
