@@ -8,13 +8,18 @@ module.exports = function() {
 				const {node} = p;
 				const {name} = node;
 
+				console.log(`name: ${name}`);
+
 				const trim = state.opts.trim;
 				const prefix = state.opts.prefix;
 				const parent = path.resolve(path.join(process.cwd(), '..')) + path.sep;
-				const filePath = this.file.opts.filename.replace(parent, '');
+
+				const normalized = path.normalize(this.file.opts.filename);
+				const filePath = normalized.replace(parent, '');
 
 				//TODO: Support labels
 				const moduleTag = loggerSpec({ filePath, trim, prefix });
+				console.log(`JSON: ${JSON.stringify(moduleTag)}`);
 
 				let tokens;
 				if (state.opts.tokens) {

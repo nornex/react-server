@@ -3,8 +3,10 @@ import fs from 'fs';
 import assert from 'assert';
 import { transformFileSync } from 'babel-core';
 
-function trim(str) {
-	return str.replace(/^\s+|\s+$/, '');
+function normalizeWhitespace(str) {
+	return str
+		.replace(/^\s+|\s+$/, '')
+		.replace(/\r\n/, "\n");
 }
 
 describe('React Server transpilation', () => {
@@ -19,7 +21,7 @@ describe('React Server transpilation', () => {
 				path.join(fixtureDir, 'expected.js')
 			).toString();
 
-			assert.equal(trim(actual), trim(expected));
+			assert.equal(normalizeWhitespace(actual), normalizeWhitespace(expected));
 		});
 	});
 });
