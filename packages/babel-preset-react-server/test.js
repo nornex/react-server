@@ -16,7 +16,8 @@ test('transpiles as expected', async t => {
 	const source = await readFile('tst/source.js');
 	const actual = transform(source, { presets: [require('.')] }).code;
 	const expected = await readFile('tst/expected.js');
-	t.is(trim(actual), trim(expected));
+
+	t.is(normalizeWhitespace(actual), normalizeWhitespace(expected));
 });
 
 function readFile(filename) {
@@ -32,6 +33,9 @@ function readFile(filename) {
 	});
 }
 
-function trim(str) {
-  return str.replace(/^\s+|\s+$/, '');
+function normalizeWhitespace(str) {
+	return str
+		.replace(/^\s+|\s+$/g, '')
+		.replace(/\r/g, '');
 }
+

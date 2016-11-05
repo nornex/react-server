@@ -5,8 +5,8 @@ import { transformFileSync } from 'babel-core';
 
 function normalizeWhitespace(str) {
 	return str
-		.replace(/^\s+|\s+$/, '')
-		.replace(/\r\n/, "\n");
+		.replace(/^\s+|\s+$/g, '')
+		.replace(/\r/g, '');
 }
 
 describe('React Server transpilation', () => {
